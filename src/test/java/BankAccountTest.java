@@ -6,19 +6,28 @@ class BankAccountTest {
     void deposit() {
     BankAccount bankAccount = new BankAccount("Thomas","Bolivar",1000.00);
     double balance = bankAccount.deposit(150);
-    assertEquals(1150,balance,0);
+    assertEquals(1150,balance);
 
     }
 
     @org.junit.jupiter.api.Test
     void withdraw() {
-        fail("This test is not yet implemented");
+        BankAccount bankAccount = new BankAccount("Thomas"," Bolivar",1000);
+        double balance = bankAccount.withdraw(150);
+        assertEquals(850,balance);
     }
 
     @org.junit.jupiter.api.Test
-    void getBalance() {
-        fail("This test is not yet implemented");
+    void getBalance_deposit() {
+        BankAccount bankAccount = new BankAccount("Thomas","Bolivar",1000.00);
+        bankAccount.deposit(150);
+        assertEquals(1150,bankAccount.getBalance());
     }
 
-
+    @org.junit.jupiter.api.Test
+    void getBalance_withdraw() {
+        BankAccount bankAccount = new BankAccount("Thomas","Bolivar",1000.00);
+        bankAccount.withdraw(150);
+        assertEquals(850,bankAccount.getBalance());
+    }
 }
